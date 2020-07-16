@@ -20,9 +20,12 @@ func StructName(name string, settings config.CombinedSettings) string {
 	}
 	out := ""
 	for _, p := range strings.Split(name, "_") {
-		if p == "id" {
+		switch p {
+		case "id":
 			out += "ID"
-		} else {
+		case "gb":
+			out += "GB"
+		default:
 			out += strings.Title(p)
 		}
 	}
